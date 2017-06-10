@@ -97,7 +97,7 @@ class Ushahidi_Console_Webhook extends Command
 
 		return [
 			[
-				'Message' => sprintf('%d webhook requests sent', $count)
+				'Message' => sprintf('%d webhook job requests sent', $count)
 			]
 		];
 	}
