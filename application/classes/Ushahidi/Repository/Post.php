@@ -968,7 +968,8 @@ class Ushahidi_Repository_Post extends Ushahidi_Repository implements
 
 	protected function updatePostValues($post_id, $attributes)
 	{
-		$this->post_value_factory->proxy()->deleteAllForPost($post_id);
+		// TODO: refactor this to allow partial updates of post values
+		//$this->post_value_factory->proxy()->deleteAllForPost($post_id);
 
 		foreach ($attributes as $key => $values)
 		{
