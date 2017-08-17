@@ -42,3 +42,13 @@ Please see our [Installation Guide][install] to get set up first!
 - [Bug tracker][issues]
 - [Ushahidi][ushahidi]
 - [Ushahidi Platform v2][ush2]
+
+## References
+This is one of three repositories related to COMRADES deployment of Ushahidi, [which is being tested here](https://comrades-stg.ushahidi.com/views/map).
+* This repo contains the primary source code for the functionality of the platform. The “development” branch is our sandbox and the “master” branch is production.
+* The [platform-client-comrades repo](https://github.com/ushahidi/platform-client-comrades) contains code for the deployment’s graphical user interface. The “development” branch is our sandbox and the “master” branch is production.
+* The test deployment also connects to other web services. In the [comrades-service-proxy repo](https://github.com/ushahidi/comrades-service-proxy) you will find code for an intermediary proxy which uses [YODIE from the University of Sheffield](https://gate.ac.uk/applications/yodie.html) to annotate posts in the COMRADES test Platform.
+* The project website for this [COMRADES H2020 European Project](http://www.comrades-project.eu) can be found here. It contains a variety of outputs from the project such as [specific documentation within reports](http://www.comrades-project.eu/outputs/deliverables.html), access to our training [data and ontologies](http://www.comrades-project.eu/outputs/datasets-and-ontologies.html), and [academic research](http://www.comrades-project.eu/outputs/papers.html). 
+
+## Acknowledgment
+This work has received support from the European Union’s Horizon 2020 research and innovation programme under [grant agreement No 687847](http://cordis.europa.eu/project/rcn/198819_en.html).
