@@ -15,11 +15,17 @@ namespace Ushahidi\Core\Traits;
 
 use Ushahidi\Core\Entity\User;
 use Ushahidi\Core\Entity\Post;
+use Ushahidi\Core\Entity\Permission;
 use Ushahidi\Core\Entity\FormRepository;
 
 trait PostValueRestrictions
 {
 
+	public function canUserSeePostLock(Post $post, $user)
+	{
+		// At present only logged in users with Manage Post Permission can see that a Post is locked
+		return $this->canUserEditForm($post->form_id, $user);
+	}
 
 	public function canUserSeeAuthor(Post $post, FormRepository $form_repo, $user)
 	{
@@ -35,7 +41,6 @@ trait PostValueRestrictions
 		return true;
 	}
 
-
 	/**
 	 * Test whether the post instance requires value restriction
 	 * @param  Post $post
@@ -49,6 +54,6 @@ trait PostValueRestrictions
 	/* FormRole */
 	protected function canUserEditForm($form_id, $user)
 	{
-		return $this->isUserAdmin($user) || $this->hasPermission($user, $this->getPermission());
+		return $this->isUserAdmin($user) || $this->acl->hasPermission($user, Permission::MANAGE_POSTS);
 	}
 }

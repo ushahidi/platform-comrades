@@ -63,12 +63,14 @@ class Export extends SearchUsecase
 
 			// Retrieved Attribute Labels for Entity's values
 			$data = $entity->asArray();
-			$data += ['attributes' => $this->repo->getFormAttributes($data['values'])];
+			$data = $this->repo->retrieveColumnNameData($data);
 
 			$results[$idx] = $data;
 		}
 
 		// ... pass the search information to the formatter, for paging
+		// TODO: Refactor: This line appears to be totally unused within the
+		// actual formatter
 		$this->formatter->setSearch($search, $total);
 
 		// ... and return the formatted results.
