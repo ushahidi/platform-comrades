@@ -122,9 +122,13 @@ trait DataTransformer
 		// If this is already a DateTime object clone it
 		if ($value instanceof \DateTimeInterface) {
 			$value = clone $value;
+		} elseif (is_array($value)) {
+			$value = new \DateTime($value['date'], new \DateTimeZone($value['timezone']));
 		} else {
 			// Convert post_date to DateTime
-			$value = date_create($value, new \DateTimeZone('UTC'));
+			$trialValue = date_create($value, new \DateTimeZone('UTC'));
+			// If that didn't work, try assuming treating the value as a
+			$value = $trialValue ?: date_create('@'.$value, new \DateTimeZone('UTC'));
 		}
 		// Always use UTC
 		$value->setTimezone(new \DateTimeZone('UTC'));
@@ -141,6 +145,17 @@ trait DataTransformer
 	{
 		// Convert a string to lowercase
 		return mb_strtolower($value, 'utf-8');
+	}
+
+	/**
+	 * Transforms all values in an array to ints
+	 *
+	 * @param  String $value
+	 * @return Integer
+	 */
+	protected static function transformArrayInt($value)
+	{
+		return array_map('intval', $value);
 	}
 
 	/**
@@ -171,7 +186,7 @@ trait DataTransformer
 	 * @param  Array $data
 	 * @return Array
 	 */
-	protected function transform(Array $data)
+	protected function transform(array $data)
 	{
 		$definition = $this->getDefinition();
 

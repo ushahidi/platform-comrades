@@ -27,7 +27,7 @@ class ValidatorFactory
 	/**
 	 * @param  Array $map
 	 */
-	public function __construct(Array $map)
+	public function __construct(array $map)
 	{
 		$this->map = $map;
 	}
@@ -40,6 +40,7 @@ class ValidatorFactory
 	 */
 	public function get($resource, $action)
 	{
+
 		if (empty($this->map[$resource][$action])) {
 			throw new \Exception(sprintf('Validator %s.%s is not defined', $resource, $action));
 		}

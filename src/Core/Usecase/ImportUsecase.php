@@ -18,7 +18,6 @@ use Ushahidi\Core\Tool\AuthorizerTrait;
 use Ushahidi\Core\Tool\FormatterTrait;
 use Ushahidi\Core\Tool\ValidatorTrait;
 use Ushahidi\Core\Tool\Transformer;
-use Ushahidi\Core\Traits\ModifyRecords;
 
 class ImportUsecase implements Usecase
 {
@@ -109,7 +108,6 @@ class ImportUsecase implements Usecase
 	 	$created_entities = array();
 		// Fetch a record
 		foreach ($this->payload as $index => $record) {
-
 			// ... transform record
 			$entity = $this->transform($record);
 

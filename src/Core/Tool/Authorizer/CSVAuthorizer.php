@@ -13,32 +13,27 @@ namespace Ushahidi\Core\Tool\Authorizer;
 
 use Ushahidi\Core\Entity;
 use Ushahidi\Core\Entity\CSV;
+use Ushahidi\Core\Entity\Permission;
 use Ushahidi\Core\Tool\Authorizer;
-use Ushahidi\Core\Tool\Permissions\Acl;
-use Ushahidi\Core\Tool\Permissions\Permissionable;
 use Ushahidi\Core\Traits\AdminAccess;
 use Ushahidi\Core\Traits\UserContext;
 use Ushahidi\Core\Traits\PrivAccess;
-use Ushahidi\Core\Traits\PermissionAccess;
-use Ushahidi\Core\Traits\Permissions\DataImport;
+use Ushahidi\Core\Tool\Permissions\AclTrait;
 use Ushahidi\Core\Traits\DataImportAccess;
 
-class CSVAuthorizer implements Authorizer, Permissionable
+class CSVAuthorizer implements Authorizer
 {
 	use UserContext;
 
 	// It uses `PrivAccess` to provide the `getAllowedPrivs` method.
 	use PrivAccess;
-	
+
 	// Check if user has Admin access
 	use AdminAccess;
 
 	// Check that the user has the necessary permissions
 	// if roles are available for this deployment.
-	use PermissionAccess;
-
-	// Provides `getPermission`
-	use DataImport;
+	use AclTrait;
 
 	// Check if the user can import data
 	use DataImportAccess;
@@ -50,15 +45,15 @@ class CSVAuthorizer implements Authorizer, Permissionable
 		if (!$this->canImportData()) {
 			return false;
 		}
-		
+
 		// These checks are run within the user context.
 		$user = $this->getUser();
 
 		// Allow role with the right permissions
-		if ($this->hasPermission($user)) {
+		if ($this->acl->hasPermission($user, Permission::DATA_IMPORT)) {
 			return true;
 		}
-		
+
 		// Allow admin access
 		if ($this->isUserAdmin($user)) {
 			return true;

@@ -1,8 +1,10 @@
 This pull request makes the following changes:
 -
 
-Test these changes by:
--
+Test checklist:
+- [ ]
+
+- [ ] I certify that I ran my checklist
 
 Fixes ushahidi/platform# .
 

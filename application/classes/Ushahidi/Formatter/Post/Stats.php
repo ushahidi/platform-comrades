@@ -41,6 +41,10 @@ class Ushahidi_Formatter_Post_Stats implements Formatter
 			} else {
 				$data['totals'] = $this->formatTotals($records);
 			}
+
+			if (array_key_exists('unmapped', $records)) {
+				$data['unmapped'] = $records['unmapped'];
+			}
 		}
 
 		return $data;
@@ -55,7 +59,6 @@ class Ushahidi_Formatter_Post_Stats implements Formatter
 			'values' => []
 		];
 		$cumulative_total = 0;
-
 
 		foreach ($records as $record) {
 			$record['label'] = $record['label'] ? $record['label'] : 'None';
@@ -94,7 +97,8 @@ class Ushahidi_Formatter_Post_Stats implements Formatter
 			$entry['values'][] = [
 				'label' => $record['label'] ? $record['label'] : 'None',
 				'total' => (int)$record['total'],
-				'id' => isset($record['id']) ? (int)$record['id'] : null
+				'id' => isset($record['id']) ? (int)$record['id'] : null,
+				'type' => isset($record['type']) ? $record['type'] : 'web'
 			];
 		}
 

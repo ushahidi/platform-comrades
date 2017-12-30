@@ -19,6 +19,9 @@ use Ushahidi\Core\Tool\Hasher;
 use Ushahidi\Core\Usecase\User\RegisterRepository;
 use Ushahidi\Core\Usecase\User\ResetPasswordRepository;
 
+use League\Event\ListenerInterface;
+use Ushahidi\Core\Traits\Event;
+
 class Ushahidi_Repository_User extends Ushahidi_Repository implements
 	UserRepository,
 	RegisterRepository,
@@ -28,6 +31,9 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 	 * @var Hasher
 	 */
 	protected $hasher;
+
+	// Use Event trait to trigger events
+	use Event;
 
 	/**
 	 * @param  Hasher $hasher
@@ -48,7 +54,26 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 	// Ushahidi_Repository
 	public function getEntity(Array $data = null)
 	{
+		if (!empty($data['id']))
+		{
+			$data += [
+				'contacts' => $this->getContacts($data['id']),
+			];
+		}
 		return new User($data);
+	}
+
+	protected function getContacts($entity_id)
+	{
+		// Unfortunately there is a circular reference created if the Contact repo is
+		// injected into the User repo to avoid this we access the table directly
+		// NOTE: This creates a hard coded dependency on the table naming for contacts
+		$query = DB::select('*')->from('contacts')
+					->where('user_id', '=', $entity_id);
+
+		$results = $query->execute($this->db);
+
+		return $results->as_array();
 	}
 
 	// CreateRepository
@@ -58,22 +83,45 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 			'created'  => time(),
 			'password' => $this->hasher->hash($entity->password),
 		];
+		$entity->setState($state);
+		if ($entity->role === 'admin') {
+				$this->updateIntercomAdminUsers($entity);
+		}
+		return parent::create($entity);
+	}
 
-		return parent::create($entity->setState($state));
+	// CreateRepository
+	public function createWithHash(Entity $entity)
+	{
+		$state = [
+			'created'  => time()
+		];
+		$entity->setState($state);
+		if ($entity->role === 'admin') {
+				$this->updateIntercomAdminUsers($entity);
+		}
+
+		return parent::create($entity);
 	}
 
 	// UpdateRepository
 	public function update(Entity $entity)
 	{
-		$state = [
-			'updated'  => time(),
-		];
+		$user = $entity->getChanged();
+
+		unset($user['contacts']);
+
+		$user['updated'] = time();
 
 		if ($entity->hasChanged('password')) {
-			$state['password'] = $this->hasher->hash($entity->password);
+			$user['password'] = $this->hasher->hash($entity->password);
 		}
 
-		return parent::update($entity->setState($state));
+		if ($entity->role === 'admin') {
+			$this->updateIntercomAdminUsers($entity);
+		}
+
+		return $this->executeUpdate(['id' => $entity->id], $user);
 	}
 
 	// SearchRepository
@@ -86,6 +134,7 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 	public function setSearchConditions(SearchData $search)
 	{
 		$query = $this->search_query;
+		$table = $this->getTable();
 
 		if ($search->q)
 		{
@@ -93,6 +142,10 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 			$query->where('email', 'LIKE', "%" . $search->q . "%");
 			$query->or_where('realname', 'LIKE', "%" . $search->q . "%");
 			$query->and_where_close();
+
+			// Adding search contacts
+			$query->join('contacts')->on("$table.id", '=', 'contacts.user_id')
+			->or_where('contacts.contact', 'like', '%' . $search->q . '%');
 		}
 
 		if ($search->role) {
@@ -123,6 +176,7 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 	// RegisterRepository
 	public function register(Entity $entity)
 	{
+
 		return $this->executeInsert([
 			'realname' => $entity->realname,
 			'email'    => $entity->email,
@@ -191,5 +245,24 @@ class Ushahidi_Repository_User extends Ushahidi_Repository implements
 	public function getTotalCount(Array $where = [])
 	{
 		return $this->selectCount($where);
+	}
+
+	// DeleteRepository
+	public function delete(Entity $entity) {
+		if ($entity->role === 'admin') {
+				$this->updateIntercomAdminUsers($entity);
+		}
+		return parent::delete($entity);
+	}
+
+	/**
+	 * Pass User count to Intercom
+	 * takes a postive/negative offset by which to increase/decrease count for create/delete
+	 * @param Integer $offset
+	 * @return void
+	 */
+	protected function updateIntercomAdminUsers($user)
+	{
+		$this->emit($this->event, $user);
 	}
 }
