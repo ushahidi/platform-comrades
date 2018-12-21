@@ -45,7 +45,7 @@ These are some ways to get involved:
 The code for the Ushahidi Platform is open source. The Comrades Platform uses a specific edition of the platform, containing advanced features to display results from the services integrated in the comrades-service-proxy and send data to other platforms such as humdata.org .
 
 ### Applications
-1.1.1. Backend application
+Backend application
 The backend application implements the server side of the Comrades system. The backend application runs in a server.
 Repository: https://github.com/ushahidi/platform-comrades
 
