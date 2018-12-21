@@ -6,7 +6,7 @@
 	- in the mysql dashboard, create a new database called `platform`. 
 - In the XAMPP control panel, click on "Shell" 
 - Run `cd htdocs`
-- Run `git clone git@github.com:ushahidi/platform.git platform` to clone the platform code inside your htdocs directory
+- Run `git clone git@github.com:ushahidi/platform-comrades.git platform` to clone the platform code inside your htdocs directory
 - `cd platform` 
 - Install composer following the instructions for your environment [here](https://getcomposer.org/doc/00-intro.md)
 - Copy `.env.example` to a new file called `.env` to create the default .env file
