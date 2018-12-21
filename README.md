@@ -43,45 +43,6 @@ These are some ways to get involved:
 
 - If you are not a developer, or just don't want to set it up yourself, you can start a hosted deployment [here](https://www.ushahidi.com/).
 
-
-
-# Installing for development
-## With Vagrant
-### Installing the API
-
-- Getting the API code
-    - Clone the repository using `git clone https://github.com/ushahidi/platform.git` this will create a directory named _platform_ .
-    - Go into the _platform_ directory (ie: `cd _platform_`)
-    - Switch to the _master_ branch (`git checkout master`) 
-
-- Once you have the code, the next step is to prepare a web server. We will use vagrant, with the Vagrant and Homestead.yml files that ship with Ushahidi.
-
-    Prerequisites: 
-    - [Vagrant](https://www.vagrantup.com/downloads.html)
-    - Recommended: [Vagrant host-updater plugin](https://github.com/cogitatio/vagrant-hostsupdater) - this is useful to avoid having to update /etc/hosts by hand
-    - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - Note: Windows users may be required to Enable VT-X (Intel Virtualization Technology) in the computer's bios settings, disable Hyper-V on program and features page in the control panel, and install the VirtualBox Extension Pack (installation instructions here.)
-    - [Composer](https://getcomposer.org/doc/00-intro.md#system-requirements)
-    - PHP >= 5.6
-
-#### Installation steps
-First up we need to install the PHP dependencies
-
-- In the _plaform_ directory, run  `composer install --ignore-platform-reqs`. 
-
-Note: Without using --ignore-platform-reqs you might run into an error like "The requested PHP extension ... is missing from your system". You generally won't need all the PHP extensions on your _host_ machine, since the vagrant setup already has them.
-
-If you get a warning like "In MemcachedConnector.php line 69:  Class 'Memcached' not found" at this point you can safely ignore it, we will come back to it later.
-
-
-- Bring up the vagrant server. Since this is the first time you run it, it will also provision the machine from scratch:
-
-   `vagrant up`
-
-Our vagrant box is built on top of Laravel's Homestead, a pre-packaged Vagrant box that provides a pre-built development environment. Homestead includes the Nginx web server, PHP 7.1, MySQL, Postgres, Redis, Memcached, Node, and all of the other goodies you might need.
-
-If you see an error like "Vagrant was unable to mount VirtualBox shared folders...", try upgrading VirtualBox or edit Homestead.yaml and change the folders to NFS as shown below, then re-run "vagrant" up.
-
-      -
 # \[API\] Vagrant setup
 
 ### Installing the API
