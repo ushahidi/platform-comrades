@@ -39,6 +39,31 @@ These are some ways to get involved:
 - **Security issues**: if you think you have found a security issue, please follow 
 [this link where we explain our disclosure and reporting policies](https://www.ushahidi.com/security)
 
+## List of Comrades repositories and how they fit together
+1. Description of the system
+The code for the Ushahidi Platform is open source. The Comrades Platform uses a specific edition of the platform, containing advanced features to display results from the services integrated in the comrades-service-proxy and send data to other platforms such as humdata.org .
+
+1.1. Applications
+1.1.1. Backend application
+The backend application implements the server side of the Comrades system. The backend application runs in a server.
+Repository: https://github.com/ushahidi/platform-comrades
+
+1.1.2. Web client application
+The web client is the component that end users interact with when opening the system website with a web browser. The web client interacts with the backend in order to perform operations on the system (i.e. submit posts, query posts).
+The web client runs in the users’ browsers.
+Repository: https://github.com/ushahidi/platform-client-comrades
+
+1.1.3 Comrades Service Proxy
+The service proxy interacts with the backend application (platform-comrades) to process the content of posts submitted by users. It fetches information from external services such as YODIE, CREES and EMINA where content from the platform is processed to be augmented with extra information or categorized depending on the service called, and then sends that information back to the platform-comrades service.
+The service proxy runs in a server, it can be run either in the same server or a different one. The platform URL and other configuration settings can be changed through an .ENV file in the service proxy. Setup instructions can be found in its own repository
+Repository:  https://github.com/ushahidi/comrades-service-proxy
+
+1.1.4 Facebook Bot
+The Facebook bot is used for communicating with users through facebook-messenger. Users can create reporrts by chatting with the bot and they are then sent back to the platform, wheere they can be processed by the service proxy if the user configures the webhooks for it. 
+The Facebook bot runs in a server, it can be run either in the same server or a different one. The platform URL and other configuration settings can be changed through an .ENV file in the repository. Setup instructions can be found in its own repository
+Repository:  https://github.com/ushahidi/platform-facebook-bot
+
+
 ## Using the Platform
 
 - If you are not a developer, or just don't want to set it up yourself, you can start a hosted deployment [here](https://www.ushahidi.com/).
