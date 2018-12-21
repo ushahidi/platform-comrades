@@ -181,7 +181,7 @@ Follow the instructions [here](docs/setup_alternatives/XAMPP.md)
 
 ### `Installing the client`
 
-The latest install instructions for the client are always [in the platform-client-comrades README, at this url](https://github.com/ushahidi/platform-client-comrades/blob/develop/README.md).
+The latest install instructions for the client are always [in the platform-client-comrades README, at this url](https://github.com/ushahidi/platform-client-comrades/blob/master/README.md).
 
 
 ## Useful Links
