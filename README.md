@@ -52,7 +52,7 @@ These are some ways to get involved:
 - Getting the API code
     - Clone the repository using `git clone https://github.com/ushahidi/platform.git` this will create a directory named _platform_ .
     - Go into the _platform_ directory (ie: `cd _platform_`)
-    - Switch to the _develop_ branch (`git checkout develop`) 
+    - Switch to the _master_ branch (`git checkout master`) 
 
 - Once you have the code, the next step is to prepare a web server. We will use vagrant, with the Vagrant and Homestead.yml files that ship with Ushahidi.
 
