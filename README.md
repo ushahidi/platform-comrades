@@ -88,15 +88,13 @@ If you see an error like "Vagrant was unable to mount VirtualBox shared folders.
 
 This guide relies heavily on Vagrant and assumes some previous knowledge of how to use and/or troubleshoot vagrant.
 
-{% hint style="info" %}
-If you want to learn more about vagrant, please refer to their docs here [https://www.vagrantup.com/intro/getting-started/index.html](https://www.vagrantup.com/intro/getting-started/index.html)
-{% endhint %}
+
+**If you want to learn more about vagrant, please refer to their docs here [https://www.vagrantup.com/intro/getting-started/index.html](https://www.vagrantup.com/intro/getting-started/index.html)**
 
 ### Prerequisites
 
-{% hint style="danger" %}
-Please make sure you install everything in this list before you proceed with the platform setup.
-{% endhint %}
+
+**Please make sure you install everything in this list before you proceed with the platform setup.**
 
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 * Recommended: [Vagrant host-updater plugin](https://github.com/cogitatio/vagrant-hostsupdater) - this is useful to avoid having to update /etc/hosts by hand
@@ -108,13 +106,13 @@ Please make sure you install everything in this list before you proceed with the
 
 Clone the repository \(this will create a directory named _platform-comrades\)_
 
-```bash
+```
 git clone https://github.com/ushahidi/platform-comrades.git
 ```
 
 Go into the platform directory
 
-```bash
+```
 cd platform-comrades
 ```
 
@@ -151,9 +149,7 @@ vagrant up
 
 Our vagrant box is built on top of Laravel's Homestead, a pre-packaged Vagrant box that provides a pre-built development environment. Homestead includes the Nginx web server, PHP 7.1, MySQL, Postgres, Redis, Memcached, Node, and all of the other goodies you might need.
 
-{% hint style="info" %}
 If you see an error like "Vagrant was unable to mount VirtualBox shared folders...", try upgrading VirtualBox or edit Homestead.yaml and change the folders to NFS as shown below, then re-run "vagrant" up.
-
 
 
 ```
@@ -166,7 +162,6 @@ If you see an error like "Vagrant was unable to mount VirtualBox shared folders.
       to: /home/vagrant/Code/platform-api
       type: "nfs"
 ```
-{% endhint %}
 
 You will have to ssh into your vagrant machine to finish installing the dependencies.
 
@@ -186,16 +181,14 @@ sudo update-alternatives --set php /usr/bin/php7.1
 composer install
 ```
 
-{% hint style="warning" %}
-**Important:** If you didn't setup vagrant-hostupdater, you will need to add the following lines to /etc/hosts in your host machine.
 
+**Important:** If you didn't setup vagrant-hostupdater, you will need to add the following lines to /etc/hosts in your host machine.
 
 
 ```
 192.168.33.110  platform-api
 192.168.33.110  api.ushahidi.test
 ```
-
 
 
 At this point you should have a running web server, but your deployment isn't set up yet. We still need to configure the database and run the migrations.
