@@ -1,25 +1,13 @@
-[download]: https://github.com/ushahidi/platform-release/releases
-[install-development]: https://github.com/ushahidi/platform/blob/develop/README.md#Installing-for-development-vagrant
-[other-install-guides]: docs/setup_alternatives
-[docs]: https://www.ushahidi.com/support
-[tech-docs]: ./docs/README.md
-[getin]: https://www.ushahidi.com/support/get-involved
-[issues]: https://github.com/ushahidi/platform/issues
-[ush2]: https://github.com/ushahidi/Ushahidi_Web
-[ushahidi]: http://ushahidi.com
-[gitter]: https://gitter.im/ushahidi/Community
+# The COMRADES Platform
+This repository holds the code for the COMRADES platform: an open‐source, community resilience platform, to help communities reconnect, respond to, and recover from crisis situations. The project website for this [COMRADES H2020 European Project can be found here](http://www.comrades-project.eu). It contains a variety of outputs from the project such as [specific documentation within reports](http://www.comrades-project.eu/outputs/deliverables.html), access to our training [data and ontologies](http://www.comrades-project.eu/outputs/datasets-and-ontologies.html), and [academic research](http://www.comrades-project.eu/outputs/papers.html).  
 
+COMRADES is built on the Ushahidi platform. To use this code, follow the instructions for installing Ushahidi, then see our COMRADES manual for instructions on configuring all of the necessary services. 
 
-## Useful Links
+### What is Ushahidi?
+Ushahidi is an open source web application for information collection, visualization and interactive mapping. It helps you to collect info from: SMS, Twitter, RSS feeds, E-mail. It helps you to process that information, categorize it, geo-locate it and publish it on a map. Please see our Installation Guide to get set up first.
 
-- [Download][download]
-- [Other Installation Guides][other-install-guides]
-- [User Documentation][docs]
-- [Technical Documentation][tech-docs]
-- [Get Involved][getin]
-- [Bug tracker][issues]
-- [Ushahidi][ushahidi]
-- [Ushahidi Platform v2][ush2]
+## Configuration Manual
+here <- Content for manual
 
 ## List of Comrades repositories and how they fit together
 
