@@ -1,5 +1,5 @@
 # The COMRADES Platform
-This repository holds the code for the COMRADES platform: an open‐source, community resilience platform, to help communities reconnect, respond to, and recover from crisis situations. The project website for this [COMRADES H2020 European Project can be found here](http://www.comrades-project.eu). It contains a variety of outputs from the project such as [specific documentation within reports](http://www.comrades-project.eu/outputs/deliverables.html), access to our training [data and ontologies](http://www.comrades-project.eu/outputs/datasets-and-ontologies.html), and [academic research](http://www.comrades-project.eu/outputs/papers.html).  
+This repository holds the code for the COMRADES platform: an open‐source, community resilience platform, to help communities reconnect, respond to, and recover from crisis situations. The project website for this [COMRADES H2020 European Project can be found here](http://www.comrades-project.eu). It contains a variety of outputs from the project such as [specific documentation within reports](http://www.comrades-project.eu/outputs/deliverables.html), access to our [training data and ontologies](http://www.comrades-project.eu/outputs/datasets-and-ontologies.html), and [academic research](http://www.comrades-project.eu/outputs/papers.html).  
 
 COMRADES is built on the Ushahidi platform. To use this code, follow the instructions for installing Ushahidi, then see our COMRADES manual for instructions on configuring all of the necessary services. 
 
@@ -12,7 +12,7 @@ here <- Content for manual
 ## List of Comrades repositories and how they fit together
 
 ### Description of the system
-The code for the Ushahidi Platform is open source. The Comrades Platform uses a specific edition of the platform, containing advanced features to display results from the services integrated in the comrades-service-proxy and send data to other platforms such as humdata.org .
+The code for the Ushahidi Platform is open source. The Comrades Platform uses a specific edition of the platform, containing advanced features to display results from the services integrated in the comrades-service-proxy and send data to other platforms.
 
 ### Applications
 Backend application
