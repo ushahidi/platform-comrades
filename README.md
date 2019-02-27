@@ -1,13 +1,14 @@
+![COMRADES Logo](Associated_Files/COMRADES_logo.png)
 # The COMRADES Platform
 This repository holds the code for the COMRADES platform: an open‐source, community resilience platform, to help communities reconnect, respond to, and recover from crisis situations. The project website for this [COMRADES H2020 European Project can be found here](http://www.comrades-project.eu). It contains a variety of outputs from the project such as [specific documentation within reports](http://www.comrades-project.eu/outputs/deliverables.html), access to our [training data and ontologies](http://www.comrades-project.eu/outputs/datasets-and-ontologies.html), and [academic research](http://www.comrades-project.eu/outputs/papers.html).  
 
 COMRADES is built on the Ushahidi platform. To use this code, follow the instructions for installing Ushahidi, then see our COMRADES manual for instructions on configuring all of the necessary services. 
 
 ### What is Ushahidi?
-Ushahidi is an open source web application for information collection, visualization and interactive mapping. It helps you to collect info from: SMS, Twitter, RSS feeds, E-mail. It helps you to process that information, categorize it, geo-locate it and publish it on a map. Please see our Installation Guide to get set up first.
+Ushahidi is an open source web application for information collection, visualization and interactive mapping. It helps you to collect info from: SMS, Twitter, RSS feeds, E-mail. It helps you to process that information, categorize it, geo-locate it and publish it on a map. Please see our Installation Guide to get set up first. For more information see [the Ushahidi website](https://www.ushahidi.com).
 
 ## Configuration Manual
-here <- Content for manual
+The [Configuration & Set-up Manual for the COMRADES Platform can be found here](https://s3-eu-west-1.amazonaws.com/comradesmanual/Comrades+Manual/COMRADES+Config+Setup+Manual.pdf). 
 
 ## List of Comrades repositories and how they fit together
 
@@ -42,7 +43,9 @@ Setup instructions can be found in its own repository
 
 Repository:  https://github.com/ushahidi/platform-facebook-bot
 
+## Acknowledgment
+This work has received support from the European Union’s Horizon 2020 research and innovation programme under [grant agreement No 687847](http://cordis.europa.eu/project/rcn/198819_en.html).
 
 ## Getting Involved
-Link <- to website explaining FOSS and connecting to Ushahidi
+We welcome contributions to our code! Ushahdi maintains a variety of communications channels to help contributors. Please see [our support page on the Ushhaidi website](https://www.ushahidi.com/support/get-involved) for more details on how to contribute. 
 
