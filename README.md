@@ -5,7 +5,7 @@ This repository holds the code for the COMRADES platform: an open‐source, comm
 COMRADES is built on the Ushahidi platform. To use this code, follow the instructions for installing Ushahidi, then see our COMRADES manual for instructions on configuring all of the necessary services. 
 
 ### What is Ushahidi?
-Ushahidi is an open source web application for information collection, visualization and interactive mapping. It helps you to collect info from: SMS, Twitter, RSS feeds, E-mail. It helps you to process that information, categorize it, geo-locate it and publish it on a map. Please see our Installation Guide to get set up first. For more information see [the Ushahidi website](https://www.ushahidi.com).
+Ushahidi is an open source web application for information collection, visualization and interactive mapping. It helps you to collect info from: SMS, Twitter, RSS feeds, E-mail. It helps you to process that information, categorize it, geo-locate it and publish it on a map. For more information see [the Ushahidi website](https://www.ushahidi.com).
 
 ## Configuration Manual
 The [Configuration & Set-up Manual for the COMRADES Platform can be found here](https://s3-eu-west-1.amazonaws.com/comradesmanual/Comrades+Manual/COMRADES+Config+Setup+Manual.pdf). 
