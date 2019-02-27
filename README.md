@@ -16,8 +16,7 @@ The [Configuration & Set-up Manual for the COMRADES Platform can be found here](
 The code for the Ushahidi Platform is open source. The Comrades Platform uses a specific edition of the platform, containing advanced features to display results from the services integrated in the comrades-service-proxy and send data to other platforms.
 
 ### Applications
-Backend application
-The backend application implements the server side of the Comrades system. The backend application runs in a server.
+This repository is the for the backend application, which implements the server side of the Comrades system. The backend application runs in a server.
 Setup instructions can be found in its own repository. 
 
 Repository: https://github.com/ushahidi/platform-comrades
