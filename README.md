@@ -47,5 +47,5 @@ Repository:  https://github.com/ushahidi/platform-facebook-bot
 This work has received support from the European Union’s Horizon 2020 research and innovation programme under [grant agreement No 687847](http://cordis.europa.eu/project/rcn/198819_en.html).
 
 ## Getting Involved
-We welcome contributions to our code! Ushahdi maintains a variety of communications channels to help contributors. Please see [our support page on the Ushhaidi website](https://www.ushahidi.com/support/get-involved) for more details on how to contribute. 
+The code for COMRADES is open source under the [AGPL license in this repository](https://github.com/ushahidi/platform-comrades/blob/master/LICENSE-AGPL). We welcome contributions to our code! Ushahdi maintains a variety of communications channels to help contributors. Please see [our support page on the Ushhaidi website](https://www.ushahidi.com/support/get-involved) for more details on how to contribute. 
 
