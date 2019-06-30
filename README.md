@@ -2,7 +2,7 @@
 # The COMRADES Platform
 This repository holds the code for the COMRADES platform: an open‐source, community resilience platform, to help communities reconnect, respond to, and recover from crisis situations. The project website for this [COMRADES H2020 European Project can be found here](http://www.comrades-project.eu). It contains a variety of outputs from the project such as [specific documentation within reports](http://www.comrades-project.eu/outputs/deliverables.html), access to our [training data and ontologies](http://www.comrades-project.eu/outputs/datasets-and-ontologies.html), and [academic research](http://www.comrades-project.eu/outputs/papers.html). A deployment of the COMRADES platform, which is run of the code in this respository, can be seen at: https://comrades.ushahidi.com. 
 
-COMRADES is built on the Ushahidi platform. To use this code, follow the instructions for installing Ushahidi, then see our COMRADES manual for instructions on configuring all of the necessary services. 
+COMRADES is built on the Ushahidi platform. To use this code, follow [the instructions for installing Ushahidi](https://www.ushahidi.com/support/install-ushahidi), then see our COMRADES manual below for instructions on configuring all of the necessary services. 
 
 ### What is Ushahidi?
 Ushahidi is an open source web application for information collection, visualization and interactive mapping. It helps you to collect info from: SMS, Twitter, RSS feeds, E-mail. It helps you to process that information, categorize it, geo-locate it and publish it on a map. For more information see [the Ushahidi website](https://www.ushahidi.com).
